@@ -3,7 +3,8 @@ import bodyParser from 'body-parser';
 import { CalendarScraperTool } from './CalendarScraperTool.mjs'; // Chemin vers votre outil
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
 
 // Middleware
 app.use(bodyParser.json());
@@ -33,5 +34,5 @@ app.get('/api/national3', async (req, res) => {
 
 // Démarrage du serveur
 app.listen(port, () => {
-    console.log(`Serveur API en cours d'exécution sur http://localhost:${port}`);
+    console.log(`Serveur API en cours d'exécution sur le port ${port}`);
 });
